@@ -27,7 +27,7 @@ namespace CS321_W3D1_BookAPI.Controllers
 
         // get specific book by id
         // GET api/books/:id
-        [HttpGet("{id")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var book = _bookService.Get(id);
@@ -61,14 +61,14 @@ namespace CS321_W3D1_BookAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Book updatedBook)
         {
-            ValidateAntiForgeryTokenAttribute book = _bookService.Update(updatedBook);
+            var book = _bookService.Update(updatedBook);
             if (book == null) return NotFound();
             return Ok(book);
         }
 
         // TODO: delete an existing book
         // DELETE api/books/:id
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
             var book = _bookService.Get(id);
